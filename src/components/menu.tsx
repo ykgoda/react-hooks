@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { menuList } from "../setting";
+import { useContext } from "react";
+import { IndexContext } from "../App";
 
 export const Menu = () => {
   return (
     <MenuContainer>
-      {menuList.map((menu) => (
-        <MenuItem item={menu} />
+      {menuList.map((menu, index) => (
+        <MenuItem key={index} item={menu} index={index} />
       ))}
     </MenuContainer>
   );
@@ -13,10 +15,12 @@ export const Menu = () => {
 
 type Props = {
   item: string;
+  index: number;
 };
 
-export const MenuItem: React.FC<Props> = ({ item }) => {
-  return <div>{item}</div>;
+export const MenuItem: React.FC<Props> = ({ item, index }) => {
+  const { selectedIndex, setSelectedIndex } = useContext(IndexContext);
+  return <div onClick={() => setSelectedIndex(index)}>{item}</div>;
 };
 
 const MenuContainer = styled.div`
