@@ -5,4 +5,7 @@ export const Header = styled.div`
   height: 16%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 32px;
 `;

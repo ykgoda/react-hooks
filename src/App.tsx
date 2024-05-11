@@ -10,6 +10,7 @@ import { UseMemoSample } from "./hooks/useMemo";
 import { UseReducerSample } from "./hooks/useReducer";
 import { Menu } from "./components/menu";
 import * as React from "react";
+import { UseCallbackSample } from "./hooks/useCallback";
 
 type IndexContextType = {
   selectedIndex: number;
@@ -35,6 +36,8 @@ function App() {
         return <UseMemoSample />;
       case 5:
         return <UseReducerSample />;
+      case 6:
+        return <UseCallbackSample />;
       default:
         null;
     }

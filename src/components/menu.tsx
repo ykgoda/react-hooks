@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { menuList } from "../setting";
+import { menuList, menuWidth } from "../setting";
 import { useContext } from "react";
 import { IndexContext } from "../App";
 
@@ -20,13 +20,29 @@ type Props = {
 
 export const MenuItem: React.FC<Props> = ({ item, index }) => {
   const { selectedIndex, setSelectedIndex } = useContext(IndexContext);
-  return <div onClick={() => setSelectedIndex(index)}>{item}</div>;
+  return (
+    <MenuItemContainer onClick={() => setSelectedIndex(index)}>
+      {item}
+    </MenuItemContainer>
+  );
 };
 
 const MenuContainer = styled.div`
-  width: 100%;
-  height: 16%;
+  height: 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #ccc;
+  padding: 0 8px;
+`;
+
+const MenuItemContainer = styled.div`
+  width: ${menuWidth}%;
+  height: 100%;
+  border: 1px solid #eee;
+  padding: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
